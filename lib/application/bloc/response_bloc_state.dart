@@ -4,8 +4,7 @@ part of 'response_bloc_bloc.dart';
 class ResponseBlocState with _$ResponseBlocState {
   const factory ResponseBlocState.initial({
 
-required  List<ResponseModel?>? responseData,
-
+ String? movieTitle,
 
   }) = _Initial;
 }

@@ -166,20 +166,20 @@ abstract class FetchDataEvent implements ResponseBlocEvent {
 
 /// @nodoc
 mixin _$ResponseBlocState {
-  List<ResponseModel?>? get responseData => throw _privateConstructorUsedError;
+  String? get movieTitle => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<ResponseModel?>? responseData) initial,
+    required TResult Function(String? movieTitle) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ResponseModel?>? responseData)? initial,
+    TResult? Function(String? movieTitle)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ResponseModel?>? responseData)? initial,
+    TResult Function(String? movieTitle)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -211,7 +211,7 @@ abstract class $ResponseBlocStateCopyWith<$Res> {
           ResponseBlocState value, $Res Function(ResponseBlocState) then) =
       _$ResponseBlocStateCopyWithImpl<$Res, ResponseBlocState>;
   @useResult
-  $Res call({List<ResponseModel?>? responseData});
+  $Res call({String? movieTitle});
 }
 
 /// @nodoc
@@ -227,13 +227,13 @@ class _$ResponseBlocStateCopyWithImpl<$Res, $Val extends ResponseBlocState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? responseData = freezed,
+    Object? movieTitle = freezed,
   }) {
     return _then(_value.copyWith(
-      responseData: freezed == responseData
-          ? _value.responseData
-          : responseData // ignore: cast_nullable_to_non_nullable
-              as List<ResponseModel?>?,
+      movieTitle: freezed == movieTitle
+          ? _value.movieTitle
+          : movieTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -246,7 +246,7 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ResponseModel?>? responseData});
+  $Res call({String? movieTitle});
 }
 
 /// @nodoc
@@ -259,13 +259,13 @@ class __$$_InitialCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? responseData = freezed,
+    Object? movieTitle = freezed,
   }) {
     return _then(_$_Initial(
-      responseData: freezed == responseData
-          ? _value._responseData
-          : responseData // ignore: cast_nullable_to_non_nullable
-              as List<ResponseModel?>?,
+      movieTitle: freezed == movieTitle
+          ? _value.movieTitle
+          : movieTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -273,22 +273,14 @@ class __$$_InitialCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial({required final List<ResponseModel?>? responseData})
-      : _responseData = responseData;
+  const _$_Initial({this.movieTitle});
 
-  final List<ResponseModel?>? _responseData;
   @override
-  List<ResponseModel?>? get responseData {
-    final value = _responseData;
-    if (value == null) return null;
-    if (_responseData is EqualUnmodifiableListView) return _responseData;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final String? movieTitle;
 
   @override
   String toString() {
-    return 'ResponseBlocState.initial(responseData: $responseData)';
+    return 'ResponseBlocState.initial(movieTitle: $movieTitle)';
   }
 
   @override
@@ -296,13 +288,12 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            const DeepCollectionEquality()
-                .equals(other._responseData, _responseData));
+            (identical(other.movieTitle, movieTitle) ||
+                other.movieTitle == movieTitle));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_responseData));
+  int get hashCode => Object.hash(runtimeType, movieTitle);
 
   @JsonKey(ignore: true)
   @override
@@ -313,27 +304,27 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<ResponseModel?>? responseData) initial,
+    required TResult Function(String? movieTitle) initial,
   }) {
-    return initial(responseData);
+    return initial(movieTitle);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ResponseModel?>? responseData)? initial,
+    TResult? Function(String? movieTitle)? initial,
   }) {
-    return initial?.call(responseData);
+    return initial?.call(movieTitle);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ResponseModel?>? responseData)? initial,
+    TResult Function(String? movieTitle)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(responseData);
+      return initial(movieTitle);
     }
     return orElse();
   }
@@ -368,11 +359,10 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ResponseBlocState {
-  const factory _Initial({required final List<ResponseModel?>? responseData}) =
-      _$_Initial;
+  const factory _Initial({final String? movieTitle}) = _$_Initial;
 
   @override
-  List<ResponseModel?>? get responseData;
+  String? get movieTitle;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

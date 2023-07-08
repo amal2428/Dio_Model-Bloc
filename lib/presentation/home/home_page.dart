@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("dio fetching model class"),
+        title: const Text("dio  model bloc"),
       ),
       body: Center(
         child: BlocBuilder<ResponseBlocBloc, ResponseBlocState>(
@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('${state.responseData?[0]?.results ?? "no data"}'),
+                Text(state.movieTitle ?? "no data"),
                 const SizedBox(
                   height: 50,
                 ),

@@ -1,38 +1,25 @@
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:dio_model_bloc/core/constants.dart';
-
 import 'package:dio_model_bloc/domain/model/response_model.dart';
 
 class ApiServices {
-  static Future<List<ResponseModel?>?> fetchData() async {
+ static Future<ResponseModel?> fetchData() async {
     try {
       final response = await Dio().get(pathUrl);
-      print(response.statusCode);
-
       if (response.statusCode == 200 || response.statusCode == 201) {
-        ///------------------------------------------------------------------
-      print(response.statusCode);
+        ResponseModel jsonObject = ResponseModel.fromJson(response.data);
 
-        final resultList = (response.data['results'] as List)
-            .map((e) => ResponseModel.fromJson(e))
-            .toList();
-
-        print(resultList);
-        log(response.data.toString());
-        log(response.data);
-
-        return resultList;
-
-//-----------------------------------------------------------------
+        return jsonObject;
       } else {
-        log('server error');
+        print("Server side error");
         return null;
       }
-    } catch (_) {
-      log('client error');
+    } catch (e) {
+      print("client side error");
       return null;
     }
   }
 }
+
+
